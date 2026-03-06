@@ -1,10 +1,16 @@
 import request from "supertest";
 import app from "../src/app.js";
+import User from "../src/models/User.js";
+import Task from "../src/models/Task.js";
 
 let token;
 let taskId;
 
 beforeAll(async () => {
+  // Clear test data
+  await User.deleteMany({ email: "task@example.com" });
+  await Task.deleteMany({});
+
   // Register
   await request(app)
     .post("/api/auth/register")
