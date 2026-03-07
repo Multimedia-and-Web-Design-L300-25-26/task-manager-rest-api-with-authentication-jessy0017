@@ -1,9 +1,15 @@
 import request from "supertest";
 import app from "../src/app.js";
+import User from "../src/models/User.js";
 
 describe("Auth Routes", () => {
 
   let token;
+
+  beforeAll(async () => {
+    // Clear test users before running tests
+    await User.deleteMany({ email: "test@example.com" });
+  });
 
   it("should register a user", async () => {
     const res = await request(app)
