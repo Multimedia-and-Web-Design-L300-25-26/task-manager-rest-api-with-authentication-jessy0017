@@ -18,9 +18,9 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Run Backend Tests
-        setup-command: ''
+        setup-command: npm install
         command: npm test
-        timeout: 10
+        timeout: 60
         max-score: 100
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
