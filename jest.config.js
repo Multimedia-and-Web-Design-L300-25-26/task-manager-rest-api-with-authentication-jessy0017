@@ -1,3 +1,6 @@
 export default {
-  testEnvironment: "node"
+  testEnvironment: "node",
+  testTimeout: 60000,
+  setupFilesAfterEnv: ["<rootDir>/tests/setup.js"],
+  testMatch: ["**/tests/**/*.test.js"]
 };
